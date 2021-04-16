@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+	<!-- Version 26. März 2021; A-Frame 1.0.4 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>Sonnensystem Teil 1</title>
+        <!-- Planeten als Kugeln darstellen -->
+		<script src="js/aframe.min.js"></script>
+	</head>
+	<body>
+        <a-scene>
+            <a-entity id="camera" position="0 0 20">
+                <a-camera></a-camera>
+            </a-entity>
+            <!-- Planeten -->
+            <a-sphere id="sun" position="0 0 0" radius="5" color="#FFFF00"></a-sphere>
+            <a-sphere id="earth" position="-12 0 0" radius="2" color="#0000FF"></a-sphere>
+            <a-sphere id="mars" position="20 0 0" radius="1" color="#FF0000"></a-sphere>
+            <a-sphere id="jupiter" position="30 0 0" radius="3" color="#00FF00"></a-sphere>
+            <a-sphere id="pluto" position="50 0 0" radius="0.5" color="#CCCCCC"></a-sphere>
+        </a-scene>
+	</body>
+</html>

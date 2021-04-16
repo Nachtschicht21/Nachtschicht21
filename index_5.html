@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+	<!-- Version 26. März 2021; A-Frame 1.0.4 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>Sonnensystem Teil 5</title>
+        <!-- Grösse Mars mit Javascript ändern -->
+		<script src="js/aframe.min.js"></script>
+	</head>
+	<body>
+        <!-- Drehung Erde nur, wenn man sie anschaut -->
+        <a-scene>
+            <!-- Kamera immer in Entity -->
+            <a-entity id="camera" position="0 0 20">
+                <a-camera><a-cursor cursor="fuse:true; fuseTimeout:1000" geometry="primitive: ring; radius-outer: 0.05; radius-inner: 0.03" material="color: white"></a-cursor></a-camera>
+            </a-entity>
+            <!-- Planeten -->
+            <a-sphere id="sun" src="images/sun.jpg" position="0 0 0" radius="5"></a-sphere>
+            <!-- Animation -->
+            <a-sphere
+                id="earth" src="images/earth.jpg" position="-12 0 0" radius="2" animation="property: rotation; to: 0 360 0; easing: linear; dur: 10000; loop: true;
+                startEvents: mouseenter;
+                pauseEvents: mouseleave">
+            </a-sphere>
+            <a-sphere id="mars" src="images/mars.jpg" position="20 0 0" radius="1"></a-sphere>
+            <a-sphere id="jupiter" src="images/jupiter.jpg" position="30 0 0" radius="3"></a-sphere>
+            <a-sphere id="pluto" src="images/pluto.jpg" position="50 0 0" radius="0.5"></a-sphere>
+            <a-sky src="sky_images/sky_universe.jpg"></a-sky>
+        </a-scene>
+        <script>
+            // Variablen definieren
+            let mars = document.querySelector("#mars");
+            // Radius herausfinden
+            let marsRadius = mars.getAttribute("radius");
+            console.log(marsRadius);
+            // Mars anschauen, Radius soll grösser werden
+            // Click reagiert auf den fuse Cursor mit Verzögerung
+            // mouseenter reagiert NICHT auf den fuse Cursor, d.h. keine Verzögerung
+            mars.addEventListener("click", function() {
+                mars.setAttribute("radius", 4);
+            })
+            mars.addEventListener("mouseleave", function() {
+                mars.setAttribute("radius", 1);
+            })
+        </script>
+	</body>
+</html>

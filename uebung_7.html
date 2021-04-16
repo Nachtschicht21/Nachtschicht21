@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+	<!-- Version 26. März 2021; A-Frame 1.0.4 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>A-Frame Übung 7</title>
+		<script src="js/aframe.min.js"></script>
+	</head>
+	<body>
+		<a-scene>
+			<a-entity position="0 0 5">
+				<a-camera zoom="0.5" user-height="1.0">
+					<a-cursor
+						cursor="fuse: true; fuseTimeout: 1000"
+						geometry="primitive: ring; radius-outer: 0.05; radius-inner: 0.01;"
+						material="color: blue"></a-cursor>
+				</a-camera>
+			</a-entity>
+            <a-assets>
+			  <video autoplay id="meinVideo" loop="true" src="videos/bird_greenscreen.mp4"></video>
+		    </a-assets>
+		
+          <a-box id="stop" position="2 0 0" color="#FF0000"></a-box>
+		  <a-box id="start" position="-2 0 0" color="#00FF00"></a-box>
+		  <a-video src="#meinVideo" width="4" height="3" position="0 0 -2"></a-video>
+		</a-scene>
+        <script>
+				var video = document.querySelector('#meinVideo');
+				var start = document.querySelector('#start');
+				var stop = document.querySelector('#stop');
+				// Pausieren
+				//video.pause();
+
+				// Video
+				start.addEventListener('click', function () {
+					video.play();
+				  })
+				stop.addEventListener('click', function () {
+					video.pause();
+				})
+				video.addEventListener("ended", function() {
+					console.log("The video has ended");
+				})
+		</script>
+	</body>
+</html>

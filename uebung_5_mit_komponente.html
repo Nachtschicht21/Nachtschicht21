@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+	<!-- Version 26. März 2021; A-Frame 1.0.4 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>A-Frame Übung 5 mit Komponenten</title>
+		<script src="js/aframe.min.js"></script>
+        <!-- https://github.com/supermedium/superframe/tree/master/components/event-set/ -->
+        <!-- https://github.com/supermedium/superframe -->
+        <!-- Anwendung in Entity: event-set__1="_event: mouseleave; material.color: red" -->
+        <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+	</head>
+	<body>
+		<a-scene>
+            <!-- Camera -->
+            <a-entity id="camera" position="0 0 10">
+                <a-camera>
+                <a-cursor
+					cursor="fuse: true; fuseTimeout: 1000"
+					geometry="primitive: ring; radius-outer: 0.05; radius-inner: 0.03;" material="color: blue"></a-cursor>
+                </a-camera>
+            </a-entity>
+            <!-- Objects -->
+            <a-box id="box" height="1" position="-2 0 0" color="green"
+               event-set__1="_event: click; geometry.height: 3"
+               event-set__2="_event: click; _target: #sphere; material.color: green"
+               event-set__3="_event: mouseleave; geometry.height: 1"
+               event-set__4="_event: mouseleave; _target: #sphere; material.color: red"
+            ></a-box>
+            <a-sphere id="sphere" radius="1" position="2 0 0" color="red"
+               event-set__10="_event: click; geometry.radius: 1.5"
+               event-set__12="_event: click; _target: #box; material.color: red"
+               event-set__13="_event: mouseleave; geometry.radius: 1"
+               event-set__14="_event: mouseleave; _target: #sphere; material.color: green"                
+            ></a-sphere>
+        </a-scene>
+    </body>
+</html>

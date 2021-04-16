@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+	<!-- Version 26. März 2021; A-Frame 1.0.4 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>A-Frame Übung 5</title>
+		<script src="js/aframe.min.js"></script>
+	</head>
+	<body>
+		<a-scene>
+            <!-- Camera -->
+            <a-entity id="camera" position="0 0 10">
+                <a-camera>
+                <a-cursor
+					cursor="fuse: true; fuseTimeout: 1000"
+					geometry="primitive: ring; radius-outer: 0.05; radius-inner: 0.03;" material="color: blue"></a-cursor>
+                </a-camera>
+            </a-entity>
+            <!-- Objects -->
+            <a-box id="box" height="1" position="-2 0 0" color="green"></a-box>
+            <a-sphere id="sphere" radius="1" position="2 0 0" color="red"></a-sphere>
+        </a-scene>
+        <script>
+            // Variablen definieren
+            var box = document.querySelector('#box');
+            var boxHeight = box.getAttribute('height');
+            var boxColor = box.getAttribute('color');
+            var sphere = document.querySelector('#sphere');
+            var sphereHeight = sphere.getAttribute('radius');
+            var sphereColor = sphere.getAttribute('color');
+            // Kontrolle
+            console.log("Height box: " + boxHeight);        // 1
+            console.log("Color sphere: " + sphereColor);    // red
+           
+            // Klick = anschauen der linken Box
+            box.addEventListener('click', function () {
+                box.setAttribute ('height', 3);
+				sphere.setAttribute('color', 'green');
+			});
+            // Wegschauen
+			box.addEventListener('mouseleave', function () {
+				box.setAttribute ('height', boxHeight);
+				sphere.setAttribute('color', sphereColor);
+			});
+            // Klick = anschauen der rechten Kugel
+            sphere.addEventListener('click', function () {
+				sphere.setAttribute ('radius', 1.5);
+				box.setAttribute('color', 'red');
+			});
+            // Wegschauen
+			sphere.addEventListener('mouseleave', function () {
+				sphere.setAttribute ('radius', sphereHeight);
+				box.setAttribute('color', boxColor);
+			});
+        </script>
+    </body>
+</html>

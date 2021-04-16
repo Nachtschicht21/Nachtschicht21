@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+	<!-- Version 26. März 2021; A-Frame 1.0.4 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>A-Frame Übung 6</title>
+		<script src="js/aframe.min.js"></script>
+	</head>
+	<body>
+		<a-scene>
+			<a-camera>
+				<a-cursor
+					cursor="fuse: true; fuseTimeout: 1500"
+					geometry="primitive: ring; radius-outer: 0.05; radius-inner: 0.01;"
+					material="color: red"></a-cursor>
+			</a-camera>
+			<a-entity id="scene1">
+				<a-box id="setScene2" color="green" position="1 0 -5"></a-box>
+                <a-sky src="sky_images/sky_church.jpg"></a-sky>
+			</a-entity>
+			<a-entity id="scene2" visible="false">
+                <a-box id="setScene1" color="yellow" position="-1 0 -5"></a-box>
+				<a-sky src="sky_images/sky_landscape.jpg"></a-sky>
+			</a-entity>
+		</a-scene>
+		<script>
+			document.querySelector('#setScene2').addEventListener('click', function () {
+				document.querySelector('#scene1').setAttribute('visible', 'false');
+				document.querySelector('#scene2').setAttribute('visible', 'true');	
+			})				
+			document.querySelector('#setScene1').addEventListener('click', function () {
+				document.querySelector('#scene2').setAttribute('visible', 'false');
+				document.querySelector('#scene1').setAttribute('visible', 'true');	
+			})
+		</script>
+    </body>
+</html>

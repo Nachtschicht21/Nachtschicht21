@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+	<!-- Version 26. März 2021; A-Frame 1.0.4 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>A-Frame Übung 3</title>
+		<script src="js/aframe.min.js"></script>
+	</head>
+	<body>
+		<a-scene>
+            <!-- Camera -->
+            <a-entity id="camera" position="0 0 0">
+                <a-camera></a-camera>
+            </a-entity>
+            <!-- Cubes -->
+            <a-entity animation="property: rotation; to: 0 360 0; easing: linear; dur: 10000; loop: true;">
+                <a-box position="-5 0 0" color="orange" id="orange" ></a-box>
+                <a-box position="5  0 0" color="green" id="green"></a-box>
+                <a-box position="0 0 -5" color="blue" id="blue"></a-box>
+                <a-box position="0 0  5" color="red" id="red"></a-box>
+            </a-entity>
+        </a-scene>
+	</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Video Testdatei mit Ton</title>
+    <script src="js/aframe.min.js"></script>
+    <style>
+      #a-frame {display: none;}
+      #button {display: block;}
+    </style>
+  </head>
+  <body>
+    <p id="button"><button>VR-Erlebnis starten</button></p>
+    <a-scene id="a-frame">
+
+      <a-assets>
+         <video id="video" src="videos/00_Einfuehrung_Beispiel_Sonnensystem.mp4" loop="true"></video>
+      </a-assets>
+
+        <a-entity id="camera" position="0 0 10">
+            <a-camera>
+                <a-cursor
+                cursor="fuse:true; fuseTimeout:1000"
+                geometry="primitive: ring; radius-outer: 0.02; radius-inner: 0.01;"
+                material="color: black"></a-cursor>
+            </a-camera>
+        </a-entity>
+
+        <a-entity>
+          <a-entity>
+            <a-video src="#video" width="4" height="2" position="0 0 0"></a-video>
+            <a-box id="start" color="#008800" position="-1 -1 1" height="0.5" width="0.5" depth="0.5"></a-box>
+            <a-box id="stop" color="#880000" position="2 0 0" height="0.5" width="0.5" depth="0.5"></a-box>
+          </a-entity>
+        </a-entity>
+      <a-sky color="grey"></a-sky>
+
+    </a-scene>
+
+    <script>
+    // Variablen definieren
+    let video = document.querySelector("#video");
+    let start = document.querySelector('#start');
+    let stop = document.querySelector('#stop');
+    document.querySelector("#button").addEventListener('click', function() {
+        video.setAttribute('loop', 'true');
+        video.play();		// Abspielen...
+        video.pause();	// ... und gleich pausieren
+        document.querySelector("#button").style.display = "none";
+        document.querySelector("#a-frame").style.display = "block";
+    })
+
+      start.addEventListener("click", function(){
+        video.play();
+      })
+
+      stop.addEventListener("click", function(){
+        video.pause();
+      })
+
+    </script>
+
+  </body>
+</html>

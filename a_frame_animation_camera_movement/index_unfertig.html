@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+	<!-- Version 20.01.2020 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>A-Frame</title>
+		<script src="js/aframe.min.js"></script>
+	</head>
+	<body>
+		<a-scene>
+			<a-entity id="camera" position ="0 1 5">
+				<a-camera zoom="0.5" user-height="0">
+					<a-cursor></a-cursor>
+				</a-camera>				
+			</a-entity>
+			<a-entity position="0 1 0">
+				<a-box
+					position="-1 0.5 1"
+					rotation="0 45 0"
+					color="#4CC3D9"
+				></a-box>
+				<a-sphere
+					position="0 1.25 -1"
+					radius="1.25"
+					color="#EF2D5E"
+				></a-sphere>
+				<a-cylinder
+					position="1 0.75 1"
+					radius="0.5"
+					height="1.5"
+					color="#FFC65D"
+				></a-cylinder>
+				<a-box
+					position="0 0 0"
+					rotation="-90 0 0"
+					width="4"
+					height="4"
+					depth="0.1"
+					color="yellow" 
+				></a-box>
+				<a-box
+					id="start_icon"
+					src="images/video_icon.png"
+					position="0 0 2"
+					width=".5"
+					height=".5"
+					depth=".05"
+					color="#FFF"
+				></a-box>
+			</a-entity>
+			<a-sky
+				color="#ECECEC"
+			></a-sky>
+		</a-scene>
+        <script>
+			// Script
+		</script>
+	</body>
+</html>

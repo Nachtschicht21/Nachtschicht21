@@ -1,0 +1,82 @@
+﻿<!doctype html>
+<html lang="en">
+	<!-- Version January 20th, 2020; v. 1.03 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>A-Frame Camera Movement</title>
+		<script src="js/aframe.min.js"></script>
+	</head>
+	<body>
+		<a-scene>
+			<!-- To position the camera, set the position on a wrapper <a-entity>.
+			Don’t set the position directly on the camera primitive because controls
+			will quickly override the set position -->
+			<a-entity id="camera" rotation="0 20 0" position ="0 1 5"
+                animation__one="property: position; to: 5 1 0; easing: linear; dur: 5000; startEvents: cmd_Start1"
+                animation__oneRot="property: rotation; to: 0 90 0; easing: linear; dur: 5000; startEvents: cmd_Start1"                      
+                animation__two="property: position; to: 0 1 -5; easing: linear; dur: 5000; startEvents: cmd_Start2"
+                animation__twoRot="property: rotation; to: 0 180 0; easing: linear; dur: 5000; startEvents: cmd_Start2"                      
+                animation__three="property: position; to: -5 1 0; easing: linear; dur: 5000; startEvents: cmd_Start3"
+                animation__threeRot="property: rotation; to: 0 270 0; easing: linear; dur: 5000; startEvents: cmd_Start3"                      
+                animation__four="property: position; to: 0 1 5; easing: linear; dur: 5000; startEvents: cmd_Start4"                      
+                animation__fourRot="property: rotation; to: 0 360 0; easing: linear; dur: 5000; startEvents: cmd_Start4"                      
+            >
+				<a-camera zoom="0.5" user-height="0">
+					<a-cursor></a-cursor>
+				</a-camera>
+			</a-entity>
+			<a-entity position="0 1 0">
+				<a-box
+					position="-1 0.5 1"
+					rotation="0 45 0"
+					color="#4CC3D9"
+				></a-box>
+				<a-sphere
+					position="0 1.25 -1"
+					radius="1.25"
+					color="#EF2D5E"
+				></a-sphere>
+				<a-cylinder
+					position="1 0.75 1"
+					radius="0.5"
+					height="1.5"
+					color="#FFC65D"
+				></a-cylinder>
+				<a-box
+					position="0 0 0"
+					rotation="-90 0 0"
+					width="4"
+					height="4"
+					depth="0.1"
+					color="yellow" 
+				></a-box>
+				<a-image
+					id="start_icon"
+					src="images/video_icon.png"
+					position="0 0 3"
+					width=".5"
+					height=".5"
+					color="#FFF"
+				></a-image>
+			</a-entity>
+			<a-sky
+				src="images/scene_2.jpg"
+			></a-sky>
+		</a-scene>
+		<script>
+			document.querySelector('#start_icon').addEventListener('click', function () {
+				console.log('clicked');
+				document.querySelector('#camera').emit('cmd_Start1');
+			});
+			document.querySelector('#camera').addEventListener('animationcomplete__one', function () {
+				document.querySelector('#camera').emit('cmd_Start2');
+			});
+			document.querySelector('#camera').addEventListener('animationcomplete__two', function () {
+				document.querySelector('#camera').emit('cmd_Start3');
+			});			
+			document.querySelector('#camera').addEventListener('animationcomplete__three', function () {
+				document.querySelector('#camera').emit('cmd_Start4');
+            });
+		</script>
+	</body>
+</html>

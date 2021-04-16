@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+	<!-- Version 26. März 2021; A-Frame 1.0.4 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>A-Frame Übung 1</title>
+		<script src="js/aframe.min.js"></script>
+	</head>
+	<body>
+		<a-scene>
+            <!-- Camera -->
+            <a-entity id="camera" position="0 0 5">
+                <a-camera></a-camera>
+            </a-entity>
+            <!-- Cubes -->
+            <a-box position="-1 0 0" color="orange" id="orange" ></a-box>
+            <a-box position="1  0 0" color="green" id="green"></a-box>
+            <a-box position="0 -1 0" color="blue" id="blue"></a-box>
+            <a-box position="0  1  0" color="red" id="red"></a-box>
+        </a-scene>
+	</body>
+</html>
