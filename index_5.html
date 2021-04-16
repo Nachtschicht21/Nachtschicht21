@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+	<!-- Version 26. März 2021; A-Frame 1.0.4 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>Nachtschicht 21</title>
+        <!-- Grösse Mars mit Javascript ändern -->
+		<script src="js/aframe.min.js"></script>
+	</head>
+	<body>
+        <!-- Drehung Erde nur, wenn man sie anschaut -->
+        <a-scene>
+            <!-- Kamera immer in Entity -->
+            <a-entity id="camera" position="0 0 20">
+                <a-camera><a-cursor cursor="fuse:true; fuseTimeout:1000" geometry="primitive: ring; radius-outer: 0.05; radius-inner: 0.03" material="color: white"></a-cursor></a-camera>
+            </a-entity>
+            <!-- GreenSun animation -->
+            <a-sphere id="GreenSun" src="images/green.jpg" position="0 0 0" radius="5" animation="property: rotation; to: 0 360 0; easing: linear; dur: 10000; loop: true; 
+						startEvents: mouseenter;
+						pauseEvents: mouseleave"> </a-sphere>
+				
+						<!-- Animation Earth, when cursor faces the earth it starts to to rotate -->
+            <a-box
+                id="Nachtschicht_1" src="images/Nachtschciht_Samstag-1.jpg" position="-12 0 0" depth="2" height="4" width="0.5" animation="property: rotation; to: 0 360 0; easing: linear; dur: 10000; loop: true;
+                startEvents: mouseenter;
+                pauseEvents: mouseleave">
+            </a-box>
+						
+            <a-box id="mars" src="images/mars.jpg" position="20 0 0" depth="2" height="4" width="0.5"></a-box>
+            <a-box id="jupiter" src="images/jupiter.jpg" position="30 0 0" depth="2" height="4" width="0.5"></a-box>
+            <a-box id="pluto" src="images/pluto.jpg" position="50 0 0" radius="0.5"></a-box>
+            <a-sky src="sky_images/sky_universe.jpg"></a-sky>
+        </a-scene>
+        <script>
+             // Mars vergrössern - Variablen definieren
+            let mars = document.querySelector("#mars");
+            // Radius herausfinden
+            let marsRadius = mars.getAttribute("radius");
+            console.log(marsRadius);
+            // Mars anschauen, Radius soll grösser werden
+            // Click reagiert auf den fuse Cursor mit Verzögerung
+            // mouseenter reagiert NICHT auf den fuse Cursor, d.h. keine Verzögerung
+            mars.addEventListener("click", function() {
+                mars.setAttribute("radius", 4);
+            })
+            mars.addEventListener("mouseleave", function() {
+                mars.setAttribute("radius", 1);
+            }) 
+						
+						
+						
+        </script>
+	</body>
+</html>

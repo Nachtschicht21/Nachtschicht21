@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+	<!-- Version 26. März 2021; A-Frame 1.0.4 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>Mountain Komponente</title>
+        <script src="js/aframe.min.js"></script>
+        <!-- https://github.com/supermedium/superframe/tree/master/components/mountain/ -->
+        <script src="js/aframe-mountain-component.min.js"></script>
+    </head>
+<body>
+    <a-scene>
+        <a-entity id="camera" position="0 0 20">
+            <a-camera></a-camera>
+        </a-entity>
+        <a-entity mountain="color: red; shadowColor: white"></a-entity>
+    </a-scene>
+</body>
+</html>
