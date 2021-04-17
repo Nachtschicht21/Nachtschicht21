@@ -2,7 +2,8 @@
 - Interactive Virtual Reality 3d Exhibition  
 
 ## Goal
-- , one , two or three camara movements, and lay the cornerstone for the artworks to be placed into the VR exhibition room
+
+Explore and discover the possibilities of A frame has to offer for a VR immersive experience.
 
 ## Project Description 
 The initial concept was to transform the content from the website [Nachtsicht21](https://www.nachtschicht21.ch/) into a more immersive experience with the use of Virtual reality visualisation means. 
