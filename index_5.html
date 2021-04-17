@@ -19,35 +19,110 @@
 						startEvents: mouseenter;
 						pauseEvents: mouseleave"> </a-sphere>
 				
-						<!-- Animation Earth, when cursor faces the earth it starts to to rotate -->
+						<!-- Animation erstes Bild , when cursor faces the picture it starts to to rotate -->
             <a-box
-                id="Nachtschicht_1" src="images/Nachtschciht_Samstag-1.jpg" position="-12 0 0" depth="2" height="4" width="0.5" animation="property: rotation; to: 0 360 0; easing: linear; dur: 10000; loop: true;
+                id="Nachtschicht_1" src="images/Nachtschicht_Samstag-1.jpg" position="-12 0 0" depth="2" height="4" width="0.5" animation="property: rotation; to: 0 360 0; easing: linear; dur: 10000; loop: true;
                 startEvents: mouseenter;
                 pauseEvents: mouseleave">
             </a-box>
 						
-            <a-box id="mars" src="images/mars.jpg" position="20 0 0" depth="2" height="4" width="0.5"></a-box>
-            <a-box id="jupiter" src="images/jupiter.jpg" position="30 0 0" depth="2" height="4" width="0.5"></a-box>
-            <a-box id="pluto" src="images/pluto.jpg" position="50 0 0" radius="0.5"></a-box>
+            <a-box id="Nachtschicht_2" src="images/Nachtschicht_Samstag-2.jpg" position="20 0 0" depth="2" height="4" width="0.5"
+						animation="property: rotation; to: 0 360 0; easing: linear; dur: 10000; loop: true;
+						startEvents: mouseenter;
+						pauseEvents: mouseleave"></a-box>
+						
+						
+            <a-box id="Nachtschicht_63" src="images/Nachtschicht_Samstag-63.jpg" position="30 0 0" depth="2" height="4" width="0.5" animation="property: rotation; to: 0 360 0; easing: linear; dur: 10000; loop: true;
+						startEvents: mouseenter;
+						pauseEvents: mouseleave"></a-box>
+						
+            <a-box id="Nachtschicht_41" src="images/Nachtschicht_Samstag-41.jpg" position="50 0 0" depth="2" height="4" width="0.5"
+						animation="property: rotation; to: 0 360 0; easing: linear; dur: 10000; loop: true;
+						startEvents: mouseenter;
+						pauseEvents: mouseleave">></a-box>
+						
+						<!-- Die Wand-->
             <a-sky src="sky_images/sky_universe.jpg"></a-sky>
         </a-scene>
         <script>
-             // Mars vergrössern - Variablen definieren
-            let mars = document.querySelector("#mars");
-            // Radius herausfinden
-            let marsRadius = mars.getAttribute("radius");
-            console.log(marsRadius);
-            // Mars anschauen, Radius soll grösser werden
-            // Click reagiert auf den fuse Cursor mit Verzögerung
+				
+			
+             // Nachtschicht_1 vergrössern wenn wir mit der Maus darüber fahren - Variablen (let=Variable) definieren
+            let Nachtschicht_1 = document.querySelector("#Nachtschicht_1");
+            // Tiefe, Höhe, und Weite herausfinden, wenn wir eine getAttribute machen dann kann man nur ein atribute ansprechen und erwähnen. dies gerade da unten ist nur die info welche wir im log sehen. die action sehen wir dann beim eventlistener
+            let Nachtschicht_1Grosse = Nachtschicht_1.getAttribute("depth");
+            console.log(Nachtschicht_1Grosse);
+            // Nachtschicht_1 anschauen, dei Box soll grösser werden
+            // beim darüberschweben reagiert auf den fuse Cursor mit Verzögerung
             // mouseenter reagiert NICHT auf den fuse Cursor, d.h. keine Verzögerung
-            mars.addEventListener("click", function() {
-                mars.setAttribute("radius", 4);
+            Nachtschicht_1.addEventListener("click", function() {
+                Nachtschicht_1.setAttribute("depth", 8);
+								Nachtschicht_1.setAttribute("height", 16);
+								Nachtschicht_1.setAttribute("width", 2);
             })
-            mars.addEventListener("mouseleave", function() {
-                mars.setAttribute("radius", 1);
+            Nachtschicht_1.addEventListener("mouseleave", function() {
+							Nachtschicht_1.setAttribute("depth", 2);
+							Nachtschicht_1.setAttribute("height", 4);
+							Nachtschicht_1.setAttribute("width", 0.5);
             }) 
 						
 						
+						// Nachtschicht_2 vergrössern wenn wir mit der Maus darüber fahren - Variablen (let=Variable) definieren
+					 let Nachtschicht_2 = document.querySelector("#Nachtschicht_2");
+					 // Tiefe, Höhe, und Weite herausfinden, wenn wir eine getAttribute machen dann kann man nur ein atribute ansprechen und erwähnen. dies gerade da unten ist nur die info welche wir im log sehen. die action sehen wir dann beim eventlistener
+					 let Nachtschicht_2Grosse = Nachtschicht_2.getAttribute("depth");
+					 console.log(Nachtschicht_2Grosse);
+					 // Nachtschicht_1 anschauen, dei Box soll grösser werden
+					 // beim darüberschweben reagiert auf den fuse Cursor mit Verzögerung
+					 // mouseenter reagiert NICHT auf den fuse Cursor, d.h. keine Verzögerung
+					 Nachtschicht_2.addEventListener("click", function() {
+							 Nachtschicht_2.setAttribute("depth", 8);
+							 Nachtschicht_2.setAttribute("height", 16);
+							 Nachtschicht_2.setAttribute("width", 2);
+					 })
+					 Nachtschicht_2.addEventListener("mouseleave", function() {
+						 Nachtschicht_2.setAttribute("depth", 2);
+						 Nachtschicht_2.setAttribute("height", 4);
+						 Nachtschicht_2.setAttribute("width", 0.5);
+					 }) 
+						
+					 // Nachtschicht_63 vergrössern wenn wir mit der Maus darüber fahren - Variablen (let=Variable) definieren
+					let Nachtschicht_63 = document.querySelector("#Nachtschicht_63");
+					// Tiefe, Höhe, und Weite herausfinden, wenn wir eine getAttribute machen dann kann man nur ein atribute ansprechen und erwähnen. dies gerade da unten ist nur die info welche wir im log sehen. die action sehen wir dann beim eventlistener
+					let Nachtschicht_63Grosse = Nachtschicht_63.getAttribute("depth");
+					console.log(Nachtschicht_63Grosse);
+					// Nachtschicht_63 anschauen, dei Box soll grösser werden
+					// beim darüberschweben reagiert auf den fuse Cursor mit Verzögerung
+					// mouseenter reagiert NICHT auf den fuse Cursor, d.h. keine Verzögerung
+					Nachtschicht_63.addEventListener("click", function() {
+							Nachtschicht_63.setAttribute("depth", 8);
+							Nachtschicht_63.setAttribute("height", 16);
+							Nachtschicht_63.setAttribute("width", 2);
+					})
+					Nachtschicht_63.addEventListener("mouseleave", function() {
+						Nachtschicht_63.setAttribute("depth", 2);
+						Nachtschicht_63.setAttribute("height", 4);
+						Nachtschicht_63.setAttribute("width", 0.5);
+					}) 
+						
+					// Nachtschicht_41 vergrössern wenn wir mit der Maus darüber fahren - Variablen (let=Variable) definieren
+				 let Nachtschicht_41 = document.querySelector("#Nachtschicht_1");
+				 // Tiefe, Höhe, und Weite herausfinden, wenn wir eine getAttribute machen dann kann man nur ein atribute ansprechen und erwähnen. dies gerade da unten ist nur die info welche wir im log sehen. die action sehen wir dann beim eventlistener
+				 let Nachtschicht_41Grosse = Nachtschicht_1.getAttribute("depth");
+				 console.log(Nachtschicht_41Grosse);
+				 // Nachtschicht_41 anschauen, dei Box soll grösser werden
+				 // beim darüberschweben reagiert auf den fuse Cursor mit Verzögerung
+				 // mouseenter reagiert NICHT auf den fuse Cursor, d.h. keine Verzögerung
+				 Nachtschicht_41.addEventListener("click", function() {
+						 Nachtschicht_41.setAttribute("depth", 8);
+						 Nachtschicht_41.setAttribute("height", 16);
+						 Nachtschicht_41.setAttribute("width", 2);
+				 })
+				 Nachtschicht_41.addEventListener("mouseleave", function() {
+					 Nachtschicht_41.setAttribute("depth", 2);
+					 Nachtschicht_41.setAttribute("height", 4);
+					 Nachtschicht_41.setAttribute("width", 0.5);
+				 }) 
 						
         </script>
 	</body>
