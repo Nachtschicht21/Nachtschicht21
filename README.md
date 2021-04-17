@@ -14,7 +14,7 @@ In addition, some animation were associated to each painting to allow the visito
 ## Screenshots
 Here are some screenshots from the designing process of the VR environment: 
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "skeleton")
+![alt text](https://github.com/Nachtschicht21/Nachtschicht21/blob/8d3ac0c4ec241996c4f8f61e4ba458974c9245d6/Skeleton_bw.jpg "skeleton")
 
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Color sketch")
 
